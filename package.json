@@ -1,0 +1,19 @@
+{
+  "name": "movie-finder",
+  "version": "1.0.0",
+  "description": "PWA experiment based on TMDB movie discover api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xtroncode/movie-finder.git"
+  },
+  "author": "Meet Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xtroncode/movie-finder/issues"
+  },
+  "homepage": "https://github.com/xtroncode/movie-finder#readme"
+}
