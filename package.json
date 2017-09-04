@@ -16,10 +16,22 @@
     "url": "https://github.com/xtroncode/movie-finder/issues"
   },
   "homepage": "https://github.com/xtroncode/movie-finder#readme",
+  "babel": {
+    "presets": [ "env", "react" ]
+  },
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "eslint": "^4.6.1"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   }
 }
