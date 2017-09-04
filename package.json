@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/xtroncode/movie-finder/issues"
   },
-  "homepage": "https://github.com/xtroncode/movie-finder#readme"
+  "homepage": "https://github.com/xtroncode/movie-finder#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1"
+  }
 }
