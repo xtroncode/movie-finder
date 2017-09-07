@@ -1,4 +1,5 @@
 const { join, sep } = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const joinPath = p => join(__dirname, '..', p);
 
@@ -43,7 +44,20 @@ const commonLoaders = [
 
 // common webpack config for [ client ][ dev, prod]
 const clientCommon = Object.assign( {}, commonConfig, {
-
+      name:'client',
+      target:'web',
+      devtool:'eval',
+      output:{
+          path: PATHS.PUBLIC,
+          publicPath: '/assets/'
+      },
+      module:{
+          rules:commonLoaders.concat([
+            {
+              
+            }
+          ])
+      }
 })
 
 // common webpack config for [ server ][ dev, prod]
