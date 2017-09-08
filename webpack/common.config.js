@@ -28,6 +28,7 @@ const commonConfig = {
 const commonLoaders = [
     {
       test: /\.json$/,
+      exclude: /node_modules/,
       loader: 'json-loader'
     },
     {
@@ -35,7 +36,7 @@ const commonLoaders = [
       exclude: /node_modules/,
       use: {
         loader: "babel-loader",
-        options: Object.assign(babelConfig(true), {
+        options: Object.assign({}, {
           cacheDirectory: true
         })
       }
@@ -54,7 +55,17 @@ const clientCommon = Object.assign( {}, commonConfig, {
       module:{
           rules:commonLoaders.concat([
             {
-              
+              test: /\.css$/,
+              use:[
+                "style-loader",
+                {
+                  loader: "css-loader",
+                  options: {
+                    modules: true,
+                    localIdentName:"[name]__[local]--[hash:base64:5]"
+                  }
+                }
+              ]
             }
           ])
       }
@@ -62,49 +73,30 @@ const clientCommon = Object.assign( {}, commonConfig, {
 
 // common webpack config for [ server ][ dev, prod]
 const serverCommon = Object.assign( {}, commonConfig, {
-
-})
-
-module.exports = [
-    {
-        entry : path.resolve(__dirname, '../src/server/server.js'),
-        output:{
-            path:path.resolve(__dirname, '../dist'),
-            filename: '[name].js'
-        },
-        target:'node',
-        node: {
-            __dirname: false,
-        },
-        module: {
-            loaders: [
+      target:'node',
+      name:'server',
+      externals:nodeExternals(),
+      output:{
+        path: PATHS.BUILD
+      },
+      node:{
+        __dirname:true
+      },
+      module:{
+        rules:commonLoaders.concat([
+          {
+            test: /\.css$/,
+						use:[
               {
-                test: /\.js$/,
-                loader: 'babel-loader'
-              }
-            ].concat(commonLoaders)
-          }
-    },
-    {
-        entry:path.resolve(__dirname, '../src/client/index.js'),
-        output:{
-            path:path.resolve(__dirname, '../dist/assets'),
-            publicPath:'/',
-            filename: 'bundle.js',
-        },
-        target:'web',
-        module: {
-            loaders: [
-              {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: "css-loader/locals",
+                options: {
+                  modules: true,
+                  localIdentName: "[name]__[local]--[hash:base64:5]"
+                }
               }
             ]
-          },
-          resolve: {
-            extensions: ['.js', '.jsx']
-          }
-
-    }
-];
+					}
+        ])
+      }
+})
+module.exports = { clientCommon, serverCommon, PATHS }

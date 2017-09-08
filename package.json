@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "webpack -p --config webpack/common.config.js"
+    "build": "webpack  --config webpack/server.dev.js --config webpack/client.dev.js"
   },
   "repository": {
     "type": "git",
