@@ -6,6 +6,7 @@ const joinPath = p => join(__dirname, '..', p);
 
 // All the paths needed across the config
 const PATHS = {
+      ROOT: joinPath(''),
       NODE_MODULES: joinPath('node_modules'),
       SRC: joinPath('src'),
       APP: joinPath(`src${sep}app`),

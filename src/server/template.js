@@ -10,8 +10,9 @@ export default ({ body, title }) => {
       <body>
         <div id="root">${body}</div>
       </body>
-      
-      <script src="/assets/main.js"></script>
+      <script src="/assets/manifest.js"></script> 
+      <script src="/assets/vendor.js"></script> 
+      <script src="/assets/app.js"></script>
     </html>
     `;
 };

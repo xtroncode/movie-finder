@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "webpack  --config webpack/server.dev.js --config webpack/client.dev.js"
+    "build": "webpack  --config webpack/server.dev.js --config webpack/client.dev.js",
+    "start:dev": "export NODE_ENV=development && node src/server/run.js"
   },
   "repository": {
     "type": "git",
@@ -25,20 +26,28 @@
   },
   "dependencies": {
     "express": "^4.15.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.7",
     "eslint": "^4.6.1",
     "html-webpack-plugin": "^2.30.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
+    "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1",
+    "webpack-hot-middleware": "^2.19.1",
+    "webpack-hot-server-middleware": "^0.1.0",
     "webpack-node-externals": "^1.6.0"
   }
 }
